@@ -171,7 +171,27 @@ public class TicTac extends javax.swing.JFrame {
 
     private void jB2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        if (count == 9) {
+            showMessage();
+        } else {
+            if (!map.containsKey(jB2)) {
+                if (state) {
+                    state = !state;
+                    jB2.setText("X");
+                    map.put(jB2, "X");
+                    count++;
+                    showMessage(count);
 
+                } else {
+                    state = !state;
+                    jB2.setText("O");
+                    map.put(jB2, "O");
+                    count++;
+                    showMessage(count);
+
+                }
+            }
+        }
     }
 
     private void jB3ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +226,7 @@ public class TicTac extends javax.swing.JFrame {
     private static void showMessage() {
         JOptionPane.showMessageDialog(null, "Game Over", "The End", TrayIcon.MessageType.ERROR.ordinal());
     }
+
     private static void showMessage(int count) {
         if (count == 9)
             JOptionPane.showMessageDialog(null, "Game Over", "The End", TrayIcon.MessageType.ERROR.ordinal());
