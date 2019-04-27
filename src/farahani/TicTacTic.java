@@ -358,4 +358,65 @@ public class TicTacTic extends JFrame {
 //        }
     }
 
+    void setButtonAction(JButton jButton) {
+        JButton jb = new JButton();
+        jb = jButton;
+        if (!jb.getText().equals(""))
+            return;
+        if (flag == true) {
+            jb.setBackground(Color.red);
+            jb.setText("O");
+            flag = false;
+        } else {
+            jb.setBackground(Color.blue);
+            jb.setText("X");
+            flag = true;
+        }
+
+        for (JButton jb1 : jbArray) {
+            if (jb.getText().equals(""))
+                continue;
+            else {
+                if (jb.getText().equals("X")) {
+                    countX++;
+                    break;
+                }
+                if (jb.getText().equals("O")) {
+                    countO++;
+                    break;
+                }
+
+            }
+        }
+        jProgressBar1.setValue(((countO + countX) * 10) + 10);
+        String result = checkWinner(jbArray);
+
+        if (result.equals("X")) {
+            JOptionPane.showMessageDialog(null, "Winner X", "Dialog", JOptionPane.ERROR_MESSAGE);
+            for (JButton jbX : jbArrayResult) {
+                if (!jbX.getText().equals("")) continue;
+                else {
+                    jbX.setText("X");
+                    jbX.setBackground(Color.blue);
+                    disableButton();
+                    return;
+                }
+            }
+        }
+        if (result.equals("O")) {
+            JOptionPane.showMessageDialog(null, "Winner O", "Dialog", JOptionPane.ERROR_MESSAGE);
+            for (JButton jbO : jbArrayResult) {
+                if (!jbO.getText().equals("")) continue;
+                else {
+                    jbO.setText("O");
+                    jbO.setBackground(Color.red);
+                    disableButton();
+                    return;
+
+                }
+            }
+        }
+
+
+    }
 }
