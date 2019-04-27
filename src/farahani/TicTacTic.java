@@ -419,4 +419,50 @@ public class TicTacTic extends JFrame {
 
 
     }
+    void disableButton() {
+        for (JButton jButton : jbArray) {
+            jButton.setEnabled(false);
+        }
+    }
+
+    // See if the game is over
+    public static String checkWinner(JButton[] jbArray) {
+        String line = "";
+        for (int i = 0; i < 8; i++) {
+            switch (i) {
+                case 0:
+                    line = jbArray[0].getText() + jbArray[1].getText() + jbArray[2].getText();
+                    break;
+
+                case 1:
+                    line = jbArray[3].getText() + jbArray[4].getText() + jbArray[5].getText();
+                    break;
+                case 2:
+                    line = jbArray[6].getText() + jbArray[7].getText() + jbArray[8].getText();
+                    break;
+                case 3:
+                    line = jbArray[0].getText() + jbArray[3].getText() + jbArray[6].getText();
+                    break;
+                case 4:
+                    line = jbArray[1].getText() + jbArray[4].getText() + jbArray[7].getText();
+                    break;
+                case 5:
+                    line = jbArray[2].getText() + jbArray[5].getText() + jbArray[8].getText();
+                    break;
+                case 6:
+                    line = jbArray[0].getText() + jbArray[4].getText() + jbArray[8].getText();
+                    break;
+                case 7:
+                    line = jbArray[2].getText() + jbArray[4].getText() + jbArray[6].getText();
+                    break;
+
+            }
+            if (line.equals("XXX")) {
+                return "X";
+            } else if (line.equals("OOO")) {
+                return "O";
+            }
+        }
+        return "";
+    }
 }
