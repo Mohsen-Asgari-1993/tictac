@@ -304,6 +304,29 @@ public class TicTac extends javax.swing.JFrame {
 
     private void jB7ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+
+        if (count == 9) {
+            showMessage();
+        } else {
+            if (!map.containsKey(jB7)) {
+                if (state) {
+                    state = !state;
+                    jB7.setText("X");
+                    map.put(jB7, "X");
+                    count++;
+                    showMessage(count);
+                } else {
+                    state = !state;
+                    jB7.setText("O");
+                    map.put(jB7, "O");
+                    count++;
+                    showMessage(count);
+                }
+
+            }
+        }
+
+
     }
 
     private void jB8ActionPerformed(java.awt.event.ActionEvent evt) {
