@@ -1,6 +1,7 @@
 package farahani;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class TicTacTic extends JFrame {
     static Boolean result;
@@ -340,5 +341,21 @@ public class TicTacTic extends JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton9ActionPerformed
         setButtonAction(jButton9);
     }// GEN-LAST:event_jButton9ActionPerformed
+    void resetGame() {
+        for (JButton jb : jbArray) {
+            countO = 0;
+            countX = 0;
+            jb.setText("");
+            jb.setEnabled(true);
+            jb.setBackground(Color.gray);
+            jProgressBar1.setValue(0);
+        }
+//        for (JButton jb : jbArrayResult) {
+//            jb.setText("");
+//            jb.setEnabled(true);
+//            jb.setBackground(Color.gray);
+//
+//        }
+    }
 
 }
